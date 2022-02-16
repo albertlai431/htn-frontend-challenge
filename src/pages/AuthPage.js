@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Container,
   FormControl,
   FormLabel,
   FormErrorMessage,
   Text,
-  FormHelperText,
   Input,
   Button,
   Alert,
@@ -25,11 +24,14 @@ const AuthPage = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [incorrect, setIncorrect] = useState(false);
+  const [error, setError] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (username === "username" && password === "password") {
+    if (username === "" || password === "") {
+      setError(true);
+    } else if (username === "username" && password === "password") {
       setAuth(true);
       navigate(pathname);
     } else {
@@ -45,7 +47,7 @@ const AuthPage = (props) => {
       <Text fontSize="3xl" pb={4}>
         Log in
       </Text>
-      <FormControl>
+      <FormControl isRequired isInvalid={error}>
         {incorrect ? (
           <Alert status="error" borderRadius={6} mb={4}>
             <AlertIcon />
@@ -58,8 +60,11 @@ const AuthPage = (props) => {
           type="username"
           value={username}
           onChange={handleUsernameChange}
-          isRequired
+          isInvalid={error && username === ""}
         />
+        {username === "" ? (
+          <FormErrorMessage>Username is required.</FormErrorMessage>
+        ) : null}
         <FormLabel htmlFor="password" pt={4}>
           Password
         </FormLabel>
@@ -68,8 +73,11 @@ const AuthPage = (props) => {
           type="password"
           value={password}
           onChange={handlePasswordChange}
-          isRequired
+          isInvalid={error && password === ""}
         />
+        {password === "" ? (
+          <FormErrorMessage>Password is required.</FormErrorMessage>
+        ) : null}
         <Button onClick={handleSubmit} mt={6}>
           Log in
         </Button>
