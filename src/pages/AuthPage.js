@@ -78,7 +78,7 @@ const AuthPage = (props) => {
         {password === "" ? (
           <FormErrorMessage>Password is required.</FormErrorMessage>
         ) : null}
-        <Button onClick={handleSubmit} mt={6}>
+        <Button onClick={handleSubmit} mt={6} colorScheme="blue">
           Log in
         </Button>
       </FormControl>

@@ -31,12 +31,15 @@ function App() {
               Home
             </Link>
             {auth ? (
-              <Button onClick={logOut}>Log out</Button>
+              <Button onClick={logOut} colorScheme="blue">
+                Log out
+              </Button>
             ) : (
               <Button
                 as={RouterLink}
                 to={"/login"}
                 state={{ previousPath: location.pathname }}
+                colorScheme="blue"
               >
                 Log in
               </Button>
