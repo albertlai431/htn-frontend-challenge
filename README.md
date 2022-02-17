@@ -2,6 +2,13 @@
 
 This project was built with React (Create React App), GraphQL (Apollo Client) and Chakra UI.
 
+Login credentials:
+
+```
+Username: username
+Password: password
+```
+
 ## Writeup
 
 ### 1. Development Process
@@ -22,6 +29,6 @@ During development, I structured the app to ensure scalability. New pages could 
 
 However, there's a lot more that could be done. For one, I'd use Jest for testing. I'd write unit tests for testing individual components and integration tests across large pieces of the app. I'd also introduce a more robust form of state management such as Redux. Currently, our app is simple enough that doesn't require state to be passed around in ungainly ways, but as the app grows in complexity, better solutions would be required.
 
-In terms of new features, I'd add better support for authentication. This would require a server and database to store passwords, security measures such as password hashing and auth persistence via localStorage or cookies. I'd also incorporate better ways to view and interact with events, such as filtering/searching (as recommended in the challenge document), bookmarking and a calendar view.
+In terms of new features, I'd add better support for authentication. This would require a server and database to store passwords, security measures such as password hashing and auth persistence via localStorage or cookies. I'd also incorporate better ways to view and interact with events, such as filtering/searching (as recommended in the challenge document), bookmarking and a calendar view. And of course, adding a dark mode never hurts too :)
 
 Regarding performance metrics, I'd consider using an existing tool such as Firebase Performance Monitoring to track load times, especially for pages that require querying a lot of data.
