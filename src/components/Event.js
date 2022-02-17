@@ -139,7 +139,7 @@ const Event = (props) => {
             <Divider pt={2} />
             <VStack alignItems="start">
               <Text pt={4}>Related Events:</Text>
-              <Grid templateColumns="repeat(3, 1fr)" gap={2}>
+              <Grid templateColumns="repeat(3, 1fr)" gap={2} overflow="hidden">
                 {relatedEvents.map((event, index) => (
                   <RelatedEvent key={index} event={event} />
                 ))}
