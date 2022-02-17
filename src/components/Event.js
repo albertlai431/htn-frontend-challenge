@@ -53,6 +53,7 @@ const Event = (props) => {
             query: EVENT,
             variables: { id: parseInt(eventId) },
           });
+          // Check if related event is viewable to user
           if (
             loggedIn ||
             relatedEvent.data.sampleEvent.permission === "public"

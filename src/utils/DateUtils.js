@@ -1,3 +1,4 @@
+// Formats date string with date and time included
 export const formatDateString = (dateStringInput) => {
   const date = new Date(dateStringInput);
   return date.toLocaleDateString([], {
@@ -10,6 +11,7 @@ export const formatDateString = (dateStringInput) => {
   });
 };
 
+// Formats date string with only date included
 export const formatDateStringDate = (dateStringInput) => {
   const date = new Date(dateStringInput);
   return date.toLocaleDateString([], {
@@ -20,6 +22,7 @@ export const formatDateStringDate = (dateStringInput) => {
   });
 };
 
+// Formats date string with only time included
 export const formatDateStringTime = (dateStringInput) => {
   const date = new Date(dateStringInput);
   return date.toLocaleTimeString([], {

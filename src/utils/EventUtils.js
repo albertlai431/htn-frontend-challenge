@@ -1,5 +1,6 @@
 import { Tag } from "@chakra-ui/react";
 
+// Create Tag for Event Component
 export const createEventTypeTag = (eventType) => {
   switch (eventType) {
     case "workshop":

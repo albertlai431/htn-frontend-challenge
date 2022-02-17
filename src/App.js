@@ -49,7 +49,6 @@ function App() {
             )}
           </HStack>
         </Box>
-
         <Box px={16} py={8}>
           <Routes>
             <Route

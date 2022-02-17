@@ -10,7 +10,12 @@ const RelatedEvent = (props) => {
       <Container bg="gray.100" borderRadius={6} p={2} h="100%">
         <VStack alignItems="flex-start">
           {createEventTypeTag(event.event_type)}
-          <Link as={RouterLink} to={`/event/${event.id}`} fontSize="sm">
+          <Link
+            as={RouterLink}
+            to={`/event/${event.id}`}
+            fontSize="sm"
+            fontWeight="semibold"
+          >
             {event.name}
           </Link>
         </VStack>

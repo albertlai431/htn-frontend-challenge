@@ -33,12 +33,14 @@ const EventsListing = (props) => {
     onCompleted: (data) => {
       const { sampleEvents } = data;
       const sortedEvents = sampleEvents.slice();
+      // Sort events by start time
       sortedEvents.sort(function (a, b) {
         return a.start_time - b.start_time;
       });
       if (loggedIn) {
         setEvents(sortedEvents);
       } else {
+        // Filter out private events
         setEvents(
           sortedEvents.filter((event) => event.permission === "public")
         );

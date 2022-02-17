@@ -28,16 +28,16 @@ const EventPage = (props) => {
     variables: { id: parseInt(id) },
     fetchPolicy: "cache-and-network",
     onCompleted: (data) => {
+      // Check if event is viewable to user
       if (loggedIn || data.sampleEvent.permission === "public") {
-        console.log(data.sampleEvent);
         setEvent(data.sampleEvent);
       } else {
         setEvent("Not Found");
       }
     },
-    onError: (error) => {
-      console.error(error.message);
-      navigate("/");
+    onError: (_) => {
+      // Event doesn't exist
+      setEvent("Not Found");
     },
   });
 
