@@ -73,7 +73,13 @@ const Event = (props) => {
       <VStack alignItems="flex-start">
         {createEventTypeTag(event.event_type)}
         <HStack>
-          <Link as={RouterLink} to={`/event/${event.id}`} fontSize="xl" pr={2}>
+          <Link
+            as={RouterLink}
+            to={`/event/${event.id}`}
+            fontSize="xl"
+            pr={2}
+            fontWeight="semibold"
+          >
             {event.name}
           </Link>
           {event.public_url ? (
@@ -108,7 +114,9 @@ const Event = (props) => {
         </HStack>
 
         {event.description ? (
-          <Text fontSize="sm">{event.description}</Text>
+          <Text fontSize="sm" color="gray.600">
+            {event.description}
+          </Text>
         ) : null}
 
         {event.speakers && event.speakers.length > 0 ? (
@@ -127,7 +135,9 @@ const Event = (props) => {
                   ) : (
                     <Icon as={AiOutlineUser} w="100px" h="100px" />
                   )}
-                  <Text fontSize="sm">{speaker.name}</Text>
+                  <Text fontSize="sm" color="gray.600">
+                    {speaker.name}
+                  </Text>
                 </VStack>
               ))}
             </HStack>

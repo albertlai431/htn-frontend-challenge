@@ -51,7 +51,9 @@ const EventsListing = (props) => {
 
   return (
     <VStack spacing={6}>
-      <Text fontSize="3xl">Events</Text>
+      <Text fontSize="3xl" fontWeight="bold">
+        Events
+      </Text>
       {events.map((event, index) => (
         <Event key={index} event={event} loggedIn={loggedIn} />
       ))}

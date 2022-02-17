@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import { Flex, VStack, Button, Box, HStack, Link } from "@chakra-ui/react";
+import { VStack, Button, Box, HStack, Link } from "@chakra-ui/react";
 import { Routes, Route, Link as RouterLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 

@@ -44,7 +44,7 @@ const AuthPage = (props) => {
 
   return (
     <Container>
-      <Text fontSize="3xl" pb={4}>
+      <Text fontSize="3xl" pb={4} fontWeight="bold">
         Log in
       </Text>
       <FormControl isRequired isInvalid={error}>
