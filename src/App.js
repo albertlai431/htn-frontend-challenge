@@ -17,49 +17,60 @@ function App() {
   };
 
   return (
-    <Box px={16} py={8} w="full">
+    <Box w="full">
       <VStack w="full">
-        {location.pathname === "/login" ? (
-          <Flex justifyContent="flex-start" w="full">
-            <Link as={RouterLink} to="/" fontSize="xl">
-              Home
-            </Link>
-          </Flex>
-        ) : (
-          <HStack justifyContent="space-between" w="full">
-            <Link as={RouterLink} to="/" fontSize="xl">
-              Home
-            </Link>
-            {auth ? (
-              <Button onClick={logOut} colorScheme="blue">
-                Log out
-              </Button>
-            ) : (
-              <Button
-                as={RouterLink}
-                to={"/login"}
-                state={{ previousPath: location.pathname }}
-                colorScheme="blue"
-              >
-                Log in
-              </Button>
-            )}
-          </HStack>
-        )}
+        <Box
+          w="full"
+          px={4}
+          py={2}
+          bg="gray.100"
+          borderBottom="1px"
+          borderColor="gray.300"
+        >
+          {location.pathname === "/login" ? (
+            <Flex justifyContent="flex-start" w="full">
+              <Link as={RouterLink} to="/">
+                Home
+              </Link>
+            </Flex>
+          ) : (
+            <HStack justifyContent="space-between" w="full">
+              <Link as={RouterLink} to="/">
+                Home
+              </Link>
+              {auth ? (
+                <Button onClick={logOut} colorScheme="blue">
+                  Log out
+                </Button>
+              ) : (
+                <Button
+                  as={RouterLink}
+                  to={"/login"}
+                  state={{ previousPath: location.pathname }}
+                  colorScheme="blue"
+                >
+                  Log in
+                </Button>
+              )}
+            </HStack>
+          )}
+        </Box>
 
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <EventsListing key={auth} loggedIn={auth} setAuth={setAuth} />
-            }
-          />
-          <Route
-            path="/event/:id"
-            element={<EventPage key={auth} loggedIn={auth} />}
-          />
-          <Route path="login" element={<AuthPage setAuth={setAuth} />} />
-        </Routes>
+        <Box px={16} py={8}>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <EventsListing key={auth} loggedIn={auth} setAuth={setAuth} />
+              }
+            />
+            <Route
+              path="/event/:id"
+              element={<EventPage key={auth} loggedIn={auth} />}
+            />
+            <Route path="login" element={<AuthPage setAuth={setAuth} />} />
+          </Routes>
+        </Box>
       </VStack>
     </Box>
   );
