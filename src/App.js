@@ -27,33 +27,27 @@ function App() {
           borderBottom="1px"
           borderColor="gray.300"
         >
-          {location.pathname === "/login" ? (
-            <Flex justifyContent="flex-start" w="full">
-              <Link as={RouterLink} to="/">
-                Home
-              </Link>
-            </Flex>
-          ) : (
-            <HStack justifyContent="space-between" w="full">
-              <Link as={RouterLink} to="/">
-                Home
-              </Link>
-              {auth ? (
-                <Button onClick={logOut} colorScheme="blue">
-                  Log out
-                </Button>
-              ) : (
-                <Button
-                  as={RouterLink}
-                  to={"/login"}
-                  state={{ previousPath: location.pathname }}
-                  colorScheme="blue"
-                >
-                  Log in
-                </Button>
-              )}
-            </HStack>
-          )}
+          <HStack justifyContent="space-between" w="full">
+            <Link as={RouterLink} to="/">
+              Home
+            </Link>
+            {location.pathname === "/login" ? (
+              <Button opacity={0}></Button>
+            ) : auth ? (
+              <Button onClick={logOut} colorScheme="blue">
+                Log out
+              </Button>
+            ) : (
+              <Button
+                as={RouterLink}
+                to={"/login"}
+                state={{ previousPath: location.pathname }}
+                colorScheme="blue"
+              >
+                Log in
+              </Button>
+            )}
+          </HStack>
         </Box>
 
         <Box px={16} py={8}>
