@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Box, Text } from "@chakra-ui/react";
 import { useQuery, gql } from "@apollo/client";
 import Event from "../components/Event";
@@ -20,7 +20,6 @@ const EVENT = gql`
 
 const EventPage = (props) => {
   const { id } = useParams();
-  const navigate = useNavigate();
   const { loggedIn } = props;
   const [event, setEvent] = useState(null);
 
